@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap');
+
+body{
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(45deg, #F3EECF, #F9FAF1);
+}
+
+.card, .front-face, .back-face{
+    position: absolute;
+}
+
+.card{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 400px;
+    width: 320px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.card .front-face,
+.card .back-face{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background: url('../img/front-face-bg.jpg') center / cover no-repeat;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    transition: transform .7s cubic-bezier(.4, .2, .2, 1);
+}
+
+.card .back-face{
+    transform: rotateY(180deg);
+    background: url('../img/back-face-bg.jpg') center / cover no-repeat;
+}
+
+.card .back-face h2{
+    margin-top: 40%;
+    color: #FFFFFF;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.card .back-face p{
+    margin-top: 6px;
+    color: #DDDDDD;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.card .back-face .icons i{
+    cursor: pointer;
+    color: #D74039;
+    background-color: #FFFFFF;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    margin: 20px 5px;
+}
+
+.card:hover > .back-face{
+    transform: rotateY(0deg);
+}
+
+.card:hover > .front-face{
+    transform: rotateY(-180deg);
+}
